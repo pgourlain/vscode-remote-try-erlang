@@ -4,10 +4,11 @@ FROM erlang:${VARIANT}
 
 ARG USERNAME=vscode
 ARG USER_UID=1000
-ARG USER_GID=$USER_UID
+ARG USER_GID=1001
+ARG GRPNAME=vscodegrp
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-RUN addgroup --gid $USER_GID $USERNAME \
-    && adduser  -u $USER_UID -g $USER_GID -S $USERNAME
+RUN addgroup -g $USER_GID $GRPNAME \
+    && adduser -u $USER_UID -g $GRPNAME -D $USERNAME
 USER $USERNAME
