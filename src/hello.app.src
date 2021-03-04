@@ -1,0 +1,12 @@
+{application, hello,
+ [{description, ""},
+  {vsn, "0.1.0"},
+  {registered, []},
+  {modules, [hello, hello_app]},
+  {applications, [
+                 kernel
+                 ,stdlib
+                 ]},
+  {mod, {hello_app, []}},
+  {env, []}
+ ]}.
